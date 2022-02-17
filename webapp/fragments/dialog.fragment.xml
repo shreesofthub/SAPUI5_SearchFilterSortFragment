@@ -1,0 +1,10 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Dialog id="idDialog" resizable="true" showHeader="true" title="Filter based on Item Price">
+        <beginButton>
+            <Button id="idBtn3" text="close" press="onClose"></Button>
+        </beginButton>
+        <List id="idList3" items="{/filter}" mode="SingleSelectMaster" selectionChange="onSelection">
+            <StandardListItem id="idstndList" title="{price}"/>
+        </List>
+    </Dialog>
+</core:FragmentDefinition>

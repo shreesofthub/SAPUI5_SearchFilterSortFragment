@@ -1,0 +1,30 @@
+<mvc:View controllerName="search.controller.view1"
+          xmlns:mvc="sap.ui.core.mvc"   
+          xmlns="sap.m">
+          <Page id="idPage1" title="{i18n>title}">
+                <SearchField id="idSearchField" 
+                             placeholder="Search for Item" 
+                             showRefreshButton="true" 
+                             liveChange="onLiveChange" 
+                             tooltip="Searching based on Flower name"/>
+                <List id="idList1" items="{/flowers}">
+                    <ObjectListItem id="idOList" 
+                                    icon="{image}" 
+                                    intro="{instructions}" 
+                                    number="{price}" 
+                                    numberUnit="{unit}" 
+                                    title="{productId}-{name}">
+                        <ObjectAttribute id="oAttr" 
+                                         text="{category}"
+                                         title="Category"></ObjectAttribute>
+                    </ObjectListItem>
+                </List>
+                <footer>
+                    <Toolbar id="idToolbar" design="Solid">
+                        <ToolbarSpacer id="idTSpacer"/>
+                        <Button id="idBtn1" icon="sap-icon://sort" press="onSort"/>
+                        <Button id="idBtn2" icon="sap-icon://filter" press="onFilter"/>
+                    </Toolbar>
+                </footer>
+          </Page>
+</mvc:View>          
