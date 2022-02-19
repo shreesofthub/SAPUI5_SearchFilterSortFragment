@@ -1,1 +1,9 @@
 /* Enter your custom styles here */
+.backGround{
+background-image: url("https://www.psdgraphics.com/wp-content/uploads/2021/04/old-brown-paper-background-768x512.jpg");
+}
+.font{
+    font-family: arial,sans-serif;
+    font-style: bold;
+    font-weight: 600;
+}

@@ -3,7 +3,7 @@ sap.ui.define(
     function (oController) {
         return oController.extend("search.controller.view1", {
             onInit: function () {
-
+                this.oRouter = this.getOwnerComponent().getRouter();
             },
             onLiveChange: function (oEvent) {
                 var getValue = oEvent.getParameter("newValue");
@@ -37,16 +37,24 @@ sap.ui.define(
                 var selectedIndex = parseInt(sPath.split("/")[2]);
                 var filterValues = this.getView().getModel().getProperty("/filter");
                 var value = filterValues[selectedIndex].price;
-                if( value === ">15"){
+                if (value === ">15") {
                     aFilter = new sap.ui.model.Filter("price", sap.ui.model.FilterOperator.GT, 15);
-                } else if( value === "<15"){
-                     aFilter = new sap.ui.model.Filter("price", sap.ui.model.FilterOperator.LT, 15);
+                } else if (value === "<15") {
+                    aFilter = new sap.ui.model.Filter("price", sap.ui.model.FilterOperator.LT, 15);
                 } else {
                     aFilter = new sap.ui.model.Filter("price", sap.ui.model.FilterOperator.EQ, 15);
                 }
-                var list = sap.ui.getCore().byId("idList3");
+                var list = this.getView().byId("idList1");
                 list.getBinding("items").filter(aFilter);
-
+                this.oFragment.close();
+            },
+            onRefresh: function (oEvent) {
+                var refresh = oEvent.getParameter("refreshButtonPressed");
+                var list = this.getView().byId("idList1");
+                list.getBinding("items").filter(null);
+            },
+            onBack: function () {
+                this.oRouter.navTo("default");
             }
         })
     }
